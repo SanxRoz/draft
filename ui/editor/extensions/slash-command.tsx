@@ -98,7 +98,7 @@ const getSuggestionItems = ({ query }: { query: string }) => {
       },
     },
     {
-      title: "Heading 1",
+      title: "H1",
       description: "Big section heading.",
       icon: <Heading1 size={18} />,
       command: ({ editor, range }: Command) => {
@@ -111,7 +111,7 @@ const getSuggestionItems = ({ query }: { query: string }) => {
       },
     },
     {
-      title: "Heading 2",
+      title: "H2",
       description: "Medium section heading.",
       icon: <Heading2 size={18} />,
       command: ({ editor, range }: Command) => {
@@ -124,7 +124,7 @@ const getSuggestionItems = ({ query }: { query: string }) => {
       },
     },
     {
-      title: "Heading 3",
+      title: "H3",
       description: "Small section heading.",
       icon: <Heading3 size={18} />,
       command: ({ editor, range }: Command) => {

@@ -32,11 +32,19 @@ img {
 
 .overlay {
   background-image: url("https://www.svg-animations.how/noise.png");
-  position: absolute;
+  position: fixed;
   inset: 0;
   background-size: 128px;
   background-repeat: repeat;
   opacity: 0.3;
   mix-blend-mode: overlay;
   height: 100%;
+}
+
+.editor .ProseMirror {
+  background: #1e1e1e;
+  padding: 16px;
+  border: 1px solid #1e1e1e;
+  border-radius: 16px;
+  color: #ffffffcf;
 }

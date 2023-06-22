@@ -152,34 +152,36 @@ export default function Editor() {
   }, [editor, content, hydrated]);
   return (
     <>
-      <div className="flex flex-col items-center gap-4 bg-[#282828] p-[16px]">
-        <input
-          className="w-[90%] bg-[#222] sm:max-w-[60%]"
-          type="text"
-          placeholder="Send"
-        />
-        <div
-          onClick={() => {
-            editor?.chain().focus().run();
-          }}
-          className="relative min-h-[500px] w-[90%] border-0 bg-[#222] p-12 px-8 sm:max-w-[60%] sm:rounded-lg sm:px-12"
-        >
-          <div className="text[#ffffffcf] absolute right-5 top-5 mb-5 rounded-lg bg-[#ffffff08] px-2 py-1 text-sm">
-            {saveStatus}
-          </div>
-
-          {editor ? (
-            <>
-              <EditorContent editor={editor} />
-              <EditorBubbleMenu editor={editor} />
-            </>
-          ) : (
-            <></>
-          )}
+      <div
+        onClick={() => {
+          editor?.chain().run();
+        }}
+        className="editor relative flex w-[90%] min-w-[60%] flex-col gap-4 rounded-2xl border border-[#363636] bg-[#282828] p-4 sm:max-w-[60%]"
+      >
+        <div className="flexf gap-4f">
+          <input
+            className="w-full rounded-2xl bg-[#1e1e1e] p-4 placeholder:text-[#ffffffcf]"
+            type="text"
+            placeholder="from"
+          />
+          <input
+            className="w-full rounded-2xl bg-[#1e1e1e] p-4 placeholder:text-[#ffffffcf]"
+            type="text"
+            placeholder="to"
+          />
         </div>
+
+        {editor ? (
+          <>
+            <EditorContent editor={editor} />
+            <EditorBubbleMenu editor={editor} />
+          </>
+        ) : (
+          <></>
+        )}
         <button
           onClick={handleCopyClick}
-          className="w-[60%] rounded-lg bg-[#222] py-2 font-bold"
+          className="w-full rounded-2xl bg-[#000] p-4 font-bold"
         >
           Send
         </button>

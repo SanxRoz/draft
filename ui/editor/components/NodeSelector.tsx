@@ -37,19 +37,19 @@ export const NodeSelector: FC<NodeSelectorProps> = ({
         !editor.isActive("orderedList"),
     },
     {
-      name: "Heading 1",
+      name: "H1",
       icon: Heading1,
       command: () => editor.chain().focus().toggleHeading({ level: 1 }).run(),
       isActive: () => editor.isActive("heading", { level: 1 }),
     },
     {
-      name: "Heading 2",
+      name: "H2",
       icon: Heading2,
       command: () => editor.chain().focus().toggleHeading({ level: 2 }).run(),
       isActive: () => editor.isActive("heading", { level: 2 }),
     },
     {
-      name: "Heading 3",
+      name: "H3",
       icon: Heading3,
       command: () => editor.chain().focus().toggleHeading({ level: 3 }).run(),
       isActive: () => editor.isActive("heading", { level: 3 }),
