@@ -160,7 +160,7 @@ export default function Editor() {
       >
         <div className="flex flex-col gap-4">
           <input
-            className="w-full rounded-2xl bg-[#141414] p-4 outline-none placeholder:text-[#ffffffcf]"
+            className="w-full border-b border-[#363636] bg-[#141414] p-4 outline-none placeholder:text-[#ffffff]/50"
             type="text"
             placeholder="subject"
           />
@@ -176,7 +176,7 @@ export default function Editor() {
         )}
         <button
           onClick={handleCopyClick}
-          className="fixed right-2 top-2 rounded-2xl bg-[#000]/50 p-4"
+          className="fixed right-2 top-2 rounded-2xl p-4 font-bold"
         >
           copy html
         </button>
