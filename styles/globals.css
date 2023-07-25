@@ -20,6 +20,7 @@
 body {
   background-color: #141414;
   color: #ffffffcf;
+  font-family: "Courier New", Courier, monospace;
 }
 
 p {
@@ -42,9 +43,8 @@ img {
 }
 
 .editor .ProseMirror {
-  background: #1e1e1e;
   padding: 16px;
-  border: 1px solid #1e1e1e;
+
   border-radius: 16px;
   color: #ffffffcf;
 }

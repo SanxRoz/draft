@@ -1,7 +1,6 @@
 import "@/styles/globals.css";
 
 import cx from "classnames";
-import { cal, inter } from "@/styles/fonts";
 import { Analytics } from "@vercel/analytics/react";
 import { Metadata } from "next";
 import { Toaster } from "sonner";
@@ -36,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Toaster />
-      <body className={cx(cal.variable, inter.variable)}>{children}</body>
+      <body className="font-mono">{children}</body>
       <Analytics />
     </html>
   );

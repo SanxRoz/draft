@@ -156,18 +156,13 @@ export default function Editor() {
         onClick={() => {
           editor?.chain().run();
         }}
-        className="editor relative flex w-[90%] min-w-[60%] flex-col gap-4 rounded-2xl border border-[#363636] bg-[#282828] p-4 sm:max-w-[60%]"
+        className="editor relative flex w-[90%] min-w-[60%] flex-col gap-4 rounded-2xl p-4 sm:max-w-[60%]"
       >
-        <div className="flex gap-4">
+        <div className="flex flex-col gap-4">
           <input
-            className="w-full rounded-2xl bg-[#1e1e1e] p-4 placeholder:text-[#ffffffcf]"
+            className="w-full rounded-2xl bg-[#141414] p-4 outline-none placeholder:text-[#ffffffcf]"
             type="text"
-            placeholder="from"
-          />
-          <input
-            className="w-full rounded-2xl bg-[#1e1e1e] p-4 placeholder:text-[#ffffffcf]"
-            type="text"
-            placeholder="to"
+            placeholder="subject"
           />
         </div>
 
@@ -181,9 +176,9 @@ export default function Editor() {
         )}
         <button
           onClick={handleCopyClick}
-          className="w-full rounded-2xl bg-[#000] p-4 font-bold"
+          className="fixed right-2 top-2 rounded-2xl bg-[#000]/50 p-4"
         >
-          Send
+          copy html
         </button>
       </div>
     </>
