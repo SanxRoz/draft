@@ -4,6 +4,7 @@ import TiptapLink from "@tiptap/extension-link";
 import TiptapImage from "@tiptap/extension-image";
 import Placeholder from "@tiptap/extension-placeholder";
 import TiptapUnderline from "@tiptap/extension-underline";
+import TextAlign from "@tiptap/extension-text-align";
 
 import SlashCommand from "./slash-command";
 import { InputRule } from "@tiptap/core";
@@ -37,10 +38,12 @@ export const TiptapExtensions = [
     },
     code: {
       HTMLAttributes: {
-        class:
-          "rounded-md bg-stone-200 px-1.5 py-1 font-mono font-medium text-black",
+        class: "rounded-md bg-[#ffffff08] px-1.5 py-1 font-mono font-medium",
       },
     },
+  }),
+  TextAlign.configure({
+    types: ["heading", "paragraph"],
   }),
   // patch to fix horizontal rule bug: https://github.com/ueberdosis/tiptap/pull/3859#issuecomment-1536799740
   HorizontalRule.extend({
@@ -71,7 +74,7 @@ export const TiptapExtensions = [
   TiptapLink.configure({
     HTMLAttributes: {
       class:
-        "text-stone-400 underline underline-offset-[3px] hover:text-stone-600 transition-colors cursor-pointer",
+        "text[#ffffffcf] underline underline-offset-[3px] hover:text-stone-600 transition-colors cursor-pointer",
     },
   }),
   TiptapImage.configure({

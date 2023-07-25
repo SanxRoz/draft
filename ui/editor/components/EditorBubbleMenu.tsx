@@ -1,4 +1,9 @@
-import { BubbleMenu, BubbleMenuProps } from "@tiptap/react";
+import {
+  BubbleMenu,
+  BubbleMenuProps,
+  EditorContent,
+  useEditor,
+} from "@tiptap/react";
 import cx from "classnames";
 import { FC, useState } from "react";
 import {
@@ -7,6 +12,9 @@ import {
   UnderlineIcon,
   StrikethroughIcon,
   CodeIcon,
+  AlignCenter,
+  AlignLeft,
+  AlignRight,
 } from "lucide-react";
 
 import { NodeSelector } from "./NodeSelector";
@@ -51,6 +59,24 @@ export const EditorBubbleMenu: FC<EditorBubbleMenuProps> = (props) => {
       isActive: () => props.editor.isActive("code"),
       command: () => props.editor.chain().focus().toggleCode().run(),
       icon: CodeIcon,
+    },
+    {
+      name: "left",
+      isActive: () => props.editor.isActive({ textAlign: "left" }),
+      command: () => props.editor.chain().focus().setTextAlign("left").run(),
+      icon: AlignLeft,
+    },
+    {
+      name: "center",
+      isActive: () => props.editor.isActive({ textAlign: "center" }),
+      command: () => props.editor.chain().focus().setTextAlign("center").run(),
+      icon: AlignCenter,
+    },
+    {
+      name: "right",
+      isActive: () => props.editor.isActive({ textAlign: "right" }),
+      command: () => props.editor.chain().focus().setTextAlign("right").run(),
+      icon: AlignRight,
     },
   ];
 

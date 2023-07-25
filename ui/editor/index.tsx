@@ -10,6 +10,7 @@ import { useCompletion } from "ai/react";
 import { toast } from "sonner";
 import va from "@vercel/analytics";
 import DEFAULT_EDITOR_CONTENT from "./default-content";
+import clipboardCopy from "clipboard-copy";
 
 import { EditorBubbleMenu } from "./components";
 
@@ -57,6 +58,19 @@ export default function Editor() {
     },
     autofocus: "end",
   });
+
+  const [copySuccess, setCopySuccess] = useState("");
+
+  const textToCopy = editor ? editor.getHTML() : "";
+
+  const handleCopyClick = async () => {
+    try {
+      await clipboardCopy(textToCopy);
+      setCopySuccess("Copied!");
+    } catch (err) {
+      setCopySuccess("Failed to copy text");
+    }
+  };
 
   const { complete, completion, isLoading, stop } = useCompletion({
     id: "novel",
@@ -137,24 +151,41 @@ export default function Editor() {
     }
   }, [editor, content, hydrated]);
   return (
-    <div
-      onClick={() => {
-        editor?.chain().focus().run();
-      }}
-      className="relative min-h-[500px] w-full max-w-screen-lg border-stone-200 p-12 px-8 sm:mb-[calc(20vh)] sm:rounded-lg sm:border sm:px-12 sm:shadow-lg"
-    >
-      <div className="absolute right-5 top-5 mb-5 rounded-lg bg-stone-100 px-2 py-1 text-sm text-stone-400">
-        {saveStatus}
-      </div>
+    <>
+      <div
+        onClick={() => {
+          editor?.chain().run();
+        }}
+        className="editor relative flex w-[90%] min-w-[60%] flex-col gap-4 rounded-2xl border border-[#363636] bg-[#282828] p-4 sm:max-w-[60%]"
+      >
+        <div className="flexf gap-4f">
+          <input
+            className="w-full rounded-2xl bg-[#1e1e1e] p-4 placeholder:text-[#ffffffcf]"
+            type="text"
+            placeholder="from"
+          />
+          <input
+            className="w-full rounded-2xl bg-[#1e1e1e] p-4 placeholder:text-[#ffffffcf]"
+            type="text"
+            placeholder="to"
+          />
+        </div>
 
-      {editor ? (
-        <>
-          <EditorContent editor={editor} />
-          <EditorBubbleMenu editor={editor} />
-        </>
-      ) : (
-        <></>
-      )}
-    </div>
+        {editor ? (
+          <>
+            <EditorContent editor={editor} />
+            <EditorBubbleMenu editor={editor} />
+          </>
+        ) : (
+          <></>
+        )}
+        <button
+          onClick={handleCopyClick}
+          className="w-full rounded-2xl bg-[#000] p-4 font-bold"
+        >
+          Send
+        </button>
+      </div>
+    </>
   );
 }
