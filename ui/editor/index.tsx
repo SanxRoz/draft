@@ -158,7 +158,7 @@ export default function Editor() {
         }}
         className="editor relative flex w-[90%] min-w-[60%] flex-col gap-4 rounded-2xl border border-[#363636] bg-[#282828] p-4 sm:max-w-[60%]"
       >
-        <div className="flexf gap-4f">
+        <div className="flex gap-4">
           <input
             className="w-full rounded-2xl bg-[#1e1e1e] p-4 placeholder:text-[#ffffffcf]"
             type="text"
